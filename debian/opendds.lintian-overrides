@@ -1,0 +1,6 @@
+binary-without-manpage *
+
+# ACE/TAO specific
+national-encoding usr/share/ace/THANKS
+national-encoding usr/share/tao/docs/releasenotes/notify.html
+executable-not-elf-or-script usr/share/ace/bin/ace_install_pkgconfig.pl

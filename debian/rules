@@ -17,4 +17,4 @@
 	dh $@
 
 override_dh_auto_configure:
-	./configure --prefix=/usr --no-debug --optimize --no-tests --ace-github-latest
+	./configure --prefix=/usr --no-debug --optimize --no-tests

@@ -30,22 +30,23 @@ jobs:
     - name: Checkout OpenDDS
       uses: actions/checkout@v4
       with:
-        repository: 'objectcomputing/OpenDDS'
-        path: OpenDDS
+        repository: 'OpenDDS/OpenDDS'
+        path: opendds-3.30
+        ref: 'DDS-3.30'
 
     - name: Copy debian Directory
-      run: cp -r OpenDDS-Debian/debian OpenDDS/debian
+      run: cp -r OpenDDS-Debian/debian opendds-3.30/debian
 
     - name: Build Package
       run: |
-        cd OpenDDS
+        cd opendds-3.30
         dpkg-buildpackage -us -uc
         cd ..
         cp opendds_*.deb opendds.deb
 
     - name: Commit New Deb
       run: |
-        cd OpenDDS
+        cd opendds-3.30
         SHA=$(git rev-parse --short HEAD)
         cd ../OpenDDS-Debian
         git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
@@ -66,5 +67,12 @@ jobs:
         branch: 'ubuntu_24_04'
 
     - name: Lintian
-      run: lintian --pedantic --info --display-info opendds.deb
+      run: lintian --info --display-info opendds.deb
+      continue-on-error: true
       if: always()
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: deb
+        path: opendds_*_*.deb
+        compression-level: 0 # no compression

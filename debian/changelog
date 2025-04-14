@@ -1,5 +1,11 @@
+opendds (3.30) UNRELEASED; urgency=medium
+
+  * Release 3.30
+
+ -- Fred Hornsey <hornseyf@objectcomputing.com>  Thu, 24 Oct 2024 19:57:06 +0200
+
 opendds (3.13-1) unstable; urgency=medium
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Release 3.13
 
  -- Fred Hornsey <hornseyf@objectcomputing.com>  Sat, 19 Jan 2019 17:26:19 -0600
