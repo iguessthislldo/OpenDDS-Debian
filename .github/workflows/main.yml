@@ -23,12 +23,12 @@ jobs:
         sudo apt-get install debhelper lintian
 
     - name: Checkout OpenDDS-Debian
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         path: OpenDDS-Debian
 
     - name: Checkout OpenDDS
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         repository: 'objectcomputing/OpenDDS'
         path: OpenDDS
